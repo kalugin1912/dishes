@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="details_horizontal_margin">56dp</dimen>
+    <dimen name="details_vertical_margin">16dp</dimen>
+    <dimen name="photo_height">260dp</dimen>
+    <dimen name="button_width">-2px</dimen>
+</resources>

@@ -2,6 +2,7 @@
 <resources>
 
     <style name="DishTitleStyle">
+        <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
@@ -16,6 +17,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerSize">@dimen/corner_radius</item>
+        <item name="cornerFamily">rounded</item>
     </style>
 
 </resources>

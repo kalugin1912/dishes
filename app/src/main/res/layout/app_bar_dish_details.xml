@@ -2,51 +2,35 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
     >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:title="@string/dishes_screen_title"
+            app:layout_scrollFlags="scroll"
+            app:navigationIcon="@drawable/round_arrow_back_24"
+            app:title="@string/dish_details_screen_title"
             app:titleTextColor="@android:color/white"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        android:id="@+id/include"
-        layout="@layout/content_dishes"
+        android:id="@+id/include_dish_fragment"
+        layout="@layout/fragment_dish_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
-
-    <Button
-        android:id="@+id/delete"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:minWidth="150dp"
-        android:text="@string/dishes_screen_delete_btn"
-        />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

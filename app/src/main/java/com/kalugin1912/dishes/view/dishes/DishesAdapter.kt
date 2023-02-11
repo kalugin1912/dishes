@@ -25,6 +25,8 @@ class DishesAdapter(
 
     override fun getItemCount() = currentList.size
 
+    override fun getItemViewType(position: Int) = VIEW_TYPE
+
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
@@ -40,6 +42,8 @@ class DishesAdapter(
 
 
     private companion object {
+
+        private const val VIEW_TYPE = 431
 
         val DIFF_UTIL_ITEM_CALLBACK = object : DiffUtil.ItemCallback<Checkable<Dish>>() {
             override fun areItemsTheSame(oldItem: Checkable<Dish>, newItem: Checkable<Dish>): Boolean {
@@ -71,12 +75,17 @@ class DishViewHolder(
     private var value: Checkable<Dish>? = null
 
     init {
-        itemView.setOnClickListener {
+        binding.dishPhoto.setOnClickListener {
             value?.let { value ->
                 onClicked(value.value.id)
             }
         }
-
+        binding.title.setOnClickListener {
+            value?.let { value ->
+                binding.checkbox.isChecked = !binding.checkbox.isChecked
+                onCheckChanged(value.value.id, binding.checkbox.isChecked)
+            }
+        }
         binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
             value?.let { value ->
                 onCheckChanged(value.value.id, isChecked)

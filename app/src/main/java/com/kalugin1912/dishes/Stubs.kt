@@ -8,84 +8,84 @@ object Stubs {
             "5ed8da011f071c00465b2026",
             "Бургер \"Америка\"",
             "320 г • Котлета из 100% говядины (прожарка medium) на гриле, картофельная булочка на гриле, фирменный соус, лист салата, томат, маринованный лук, жареный бекон, сыр чеддер.",
-            "https://new-retail.ru/upload/iblock/985/985b0104a9907faa432a0e318885e59a.jpg",
+            "https://static.tildacdn.com/tild6235-6531-4738-b336-643362376561/photo.jpg",
             259
         ),
         Dish(
             "5ed8da011f071c00465b2027",
             "Бургер \"Мексика\"",
             "295 г • Котлета из 100% говядины (прожарка medium) на гриле, картофельная булочка на гриле, мексиканские чипсы начос, лист салата, перчики халапеньо, сыр чеддер, соус сальса из свежих томатов.",
-            "https://mesto-burger.burgergroup.ru/content/uploads/2022/12/menju-meksikan.jpg",
+            "https://thumb.tildacdn.com/tild3935-6239-4034-b033-616533333039/-/resize/600x400/-/format/webp/photo.jpg",
             229
         ),
         Dish(
             "5ed8da011f071c00465b2028",
             "Бургер \"Русский\"",
             "460 г • Две котлеты из 100% говядины (прожарка medium) на гриле, картофельная булочка на гриле, фирменный соус, лист салата, томат, маринованный лук, маринованные огурчики, двойной сыр чеддер, соус ранч.",
-            "https://www.unileverfoodsolutions.ru/dam/global-ufs/mcos/russia/calcmenu/recipes/RU-recipes/other/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80/main-header.jpg",
+            "https://static.tildacdn.com/tild6230-3838-4431-b436-366137646361/_.jpeg",
             379
         ),
         Dish(
             "5ed8da011f071c00465b2029",
             "Бургер \"Люксембург\"",
             "Куриное филе приготовленное на гриле, картофельная булочка на гриле, сыр чеддер, соус ранч, лист салата, томат, свежий огурец.",
-            "https://img.restaurantguru.com/rde7-Luxburgers-burger-2022-09-1.jpg",
+            "https://static.tildacdn.com/tild6366-6664-4338-b239-393931646134/photo.jpeg",
             189
         ),
         Dish(
             "5ed8da011f071c00465b202a",
             "Бургер \"Классика\"",
             "290 г • Котлета из 100% говядины (прожарка medium) на гриле, картофельная булочка на гриле, фирменный соус, лист салата, томат, сыр чеддер.",
-            "https://grill-bbq.ru/wp-content/uploads/2022/06/burgery-na-grile-5-luchshih-classic.jpg",
+            "https://static.tildacdn.com/tild6564-3739-4536-a363-333236303437/FARSH2607202211954.jpeg",
             199
         ),
         Dish(
             "5ed8da011f071c00465b202b",
             "Бургер \"Швейцария\"",
             "320 г • Котлета из 100% говядины (прожарка medium) на гриле, картофельная булочка на гриле, натуральный сырный соус, лист салата, томат, маринованный огурчик, 2 ломтика сыра чеддер.",
-            "https://bigseventravel.com/wp-content/uploads/2019/06/Screenshot-2019-06-16-at-09.15.26.png",
+            "https://static.tildacdn.com/stor6436-6639-4665-a531-303337616634/51463382.jpg",
             279
         ),
         Dish(
             "5ed8da011f071c00465b202e",
             "Пицца Дьябло с двойной начинкой",
             "Бекон, свинина, пепперони, перец болгарский, халапеньо, томатный пицца-соус, соус шрирача, моцарелла, зелень",
-            "https://supermegasite.ru/wp-content/uploads/2022/06/luchshie-dostavki-piccy-spb.jpg",
+            "https://yan-pizza.ru/wp-content/uploads/2020/08/pochemu-nasha-piczcza-luchshaya.jpg",
             779
         ),
         Dish(
             "5ed8da011f071c00465b202f",
             "Пицца Карбонара с двойной начинкой",
             "Бекон, пармезан, соус сливочный, моцарелла",
-            "https://i.ytimg.com/vi/ZreT0MKYIsM/maxresdefault.jpg",
+            "https://e0.edimdoma.ru/data/posts/0002/1429/21429-ed4_wide.jpg?1631194036",
             739
         ),
         Dish(
             "5ed8da011f071c00465b2030",
             "Пицца Петровская с двойной начинкой",
             "Пепперони, курица, бекон, ветчина, помидоры, шампиньоны, лук красный, моцарелла, укроп",
-            "https://irecommend.ru/sites/default/files/product-images/660923/garqqB0MH4kqLFe1343nQ.jpg",
+            "https://fotorecept.ru/wp-content/uploads/2013/08/brokkoli_pizza_05.jpg",
             895
         ),
         Dish(
             "5ed8da011f071c00465b2031",
             "Пицца 2 берега с двойной начинкой",
             "Свинина, курица, пепперони, ветчина, бекон, помидоры, перец болгарский, соус барбекю, моцарелла,укроп",
-            "https://korona.by/uploads/content/rj/3v/RJ3V2MDQA3.jpg",
+            "https://kartinkin.net/uploads/posts/2022-08/1660905824_1-kartinkin-net-p-pitstsa-krasivaya-vkontakte-2.jpg",
             899
         ),
         Dish(
             "5ed8da011f071c00465b2032",
             "Пицца Мясная с двойной начинкой",
             "Охотничьи колбаски, курица, свинина, пепперони, шампиньоны, томатный пицца-соус, моцарелла, зелень",
-            "https://webpulse.imgsmail.ru/imgpreview?mb=webpulse&key=pulse_cabinet-file-22174f6d-2973-4d99-83f3-b798d64523df",
+            "https://lh5.googleusercontent.com/heMT6Ee7CX8GMkqW130-qZSdd5-fwy3gNtRJhQlKDi6qb4F4ymFrIhidAWqq41HYLlGlHuyJsXzSmGrD37OhcG7acS8Oo5rr09RfgAIED8axe4fYjVFMGFLEbIWDUK-dYX9un7bM",
             895
         ),
         Dish(
             "5ed8da011f071c00465b2033",
             "Пицца Маргарита с двойной начинкой",
             "Моцарелла, помидоры, томатный пицца-соус",
-            "https://static.tildacdn.com/tild3330-3732-4439-b630-313437643036/DSCF1454.jpg",
+            "https://www.edimdoma.ru/system/images/contents/0001/3577/wide/87874-original.jpg?1628279359",
             524
         ),
     )

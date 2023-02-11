@@ -3,4 +3,9 @@
     <dimen name="vertical_margin">16dp</dimen>
     <dimen name="progress_bar_size">56dp</dimen>
     <dimen name="title_size">20sp</dimen>
+    <dimen name="corner_radius">20sp</dimen>
+    <dimen name="details_horizontal_margin">8dp</dimen>
+    <dimen name="details_vertical_margin">8dp</dimen>
+    <dimen name="photo_height">220dp</dimen>
+    <dimen name="button_width">-1px</dimen>
 </resources>

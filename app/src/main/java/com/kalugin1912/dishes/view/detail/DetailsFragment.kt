@@ -2,19 +2,21 @@ package com.kalugin1912.dishes.view.detail
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.kalugin1912.dishes.R
 import com.kalugin1912.dishes.ServiceLocator
+import com.kalugin1912.dishes.databinding.AppBarDishDetailsBinding
 import com.kalugin1912.dishes.databinding.FragmentDishDetailsBinding
 import com.kalugin1912.dishes.databinding.LayoutDetailsErrorBinding
 import com.kalugin1912.dishes.load
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class DetailsFragment : Fragment(R.layout.fragment_dish_details) {
+class DetailsFragment : Fragment(R.layout.app_bar_dish_details) {
 
     companion object {
 
@@ -30,7 +32,7 @@ class DetailsFragment : Fragment(R.layout.fragment_dish_details) {
         }
     }
 
-    private var fragmentDishDetailsBinding: FragmentDishDetailsBinding? = null
+    private var fragmentDishDetailsBinding: AppBarDishDetailsBinding? = null
     private var errorStateBinding: LayoutDetailsErrorBinding? = null
 
     private val dishesViewModel by viewModels<DishDetailsViewModel>(
@@ -42,9 +44,13 @@ class DetailsFragment : Fragment(R.layout.fragment_dish_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentDishDetailsBinding = FragmentDishDetailsBinding.bind(view)
+        fragmentDishDetailsBinding = AppBarDishDetailsBinding.bind(view)
 
-        fragmentDishDetailsBinding?.errorContainerStub?.setOnInflateListener { _, inflatedView ->
+        fragmentDishDetailsBinding?.toolbar?.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+        fragmentDishDetailsBinding?.includeDishFragment?.errorContainerStub?.setOnInflateListener { _, inflatedView ->
             errorStateBinding = LayoutDetailsErrorBinding.bind(inflatedView)
             errorStateBinding?.reload?.setOnClickListener {
                 dishesViewModel.reloadDish()
@@ -54,18 +60,20 @@ class DetailsFragment : Fragment(R.layout.fragment_dish_details) {
     }
 
     private fun handleUiState(uiState: DetailsUIState) {
-        fragmentDishDetailsBinding?.apply {
+        fragmentDishDetailsBinding?.includeDishFragment?.apply {
             dishDetailsProgress.isVisible = uiState is DetailsUIState.Loading
-            visibleGroups.isVisible = uiState is DetailsUIState.Loaded
+            includeDishContent.visibleGroups.isVisible = uiState is DetailsUIState.Loaded
             errorContainerStub.isVisible = uiState is DetailsUIState.Error
 
             when (uiState) {
                 is DetailsUIState.Loaded -> {
                     val dish = uiState.dish
-                    dishPhoto.load(dish.image)
-                    title.text = dish.name
-                    description.text = dish.description
-                    price.text = requireContext().getString(R.string.dollar, dish.price)
+                    includeDishContent.apply {
+                        dishPhoto.load(dish.image)
+                        title.text = dish.name
+                        description.text = dish.description
+                        price.text = requireContext().getString(R.string.dollar, dish.price)
+                    }
                 }
                 is DetailsUIState.Error -> errorStateBinding?.apply {
                     errorMessage.text = uiState.message

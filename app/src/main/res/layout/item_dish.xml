@@ -4,35 +4,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
-    android:layout_height="wrap_content"
-    android:background="?selectableItemBackground"
     >
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/dish_photo"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/photo_height"
         android:background="@drawable/photo_background"
-        android:clipToOutline="true"
-        android:outlineProvider="background"
+        android:foreground="@drawable/item_background"
         android:scaleType="centerCrop"
-        android:transitionName="image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
         tools:srcCompat="@tools:sample/avatars"
         />
 
     <TextView
-        style="@style/DishTitleStyle"
         android:id="@+id/title"
-        android:layout_width="0dp"
+        style="@style/DishTitleStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
+        android:foreground="@drawable/item_background"
         android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +42,8 @@
         />
 
     <TextView
-        style="@style/PriceStyle"
         android:id="@+id/price"
+        style="@style/PriceStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/item_price_background"
