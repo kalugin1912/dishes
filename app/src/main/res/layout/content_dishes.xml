@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <ProgressBar
+        android:id="@+id/dish_progress"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
+
+    <ViewStub
+        android:id="@+id/empty_state_container_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/empty_state_container"
+        android:layout="@layout/layout_empty_state_dishes"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dishes_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="48dp"
+        tools:listitem="@layout/item_dish"
+        />
+
+</FrameLayout>

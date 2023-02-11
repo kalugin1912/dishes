@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dishes</string>
+    <string name="dishes_screen_title">Dishes</string>
+    <string name="dishes_screen_delete_btn">Delete</string>
+    <string name="dishes_screen_empty_state">No Dishes</string>
+    <string name="dishes_screen_restore_btn">Restore</string>
+    <string name="dish_details_screen_reload_btn">Reload</string>
+    <string name="dish_details_error_state">Unknown error</string>
+    <string name="dollar">%1$d₽</string>
+</resources>
