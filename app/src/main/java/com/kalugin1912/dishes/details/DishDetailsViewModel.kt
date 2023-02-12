@@ -1,9 +1,9 @@
-package com.kalugin1912.dishes.view.detail
+package com.kalugin1912.dishes.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kalugin1912.dishes.data.Dish
-import com.kalugin1912.dishes.repository.DishesRepository
+import com.kalugin1912.dishes.data.repositories.DishesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

@@ -1,11 +1,11 @@
-package com.kalugin1912.dishes.view.dishes
+package com.kalugin1912.dishes.dishes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kalugin1912.dishes.data.Checkable
 import com.kalugin1912.dishes.data.Dish
-import com.kalugin1912.dishes.repository.DishesRepository
-import com.kalugin1912.dishes.repository.DishesState
+import com.kalugin1912.dishes.data.repositories.DishesRepository
+import com.kalugin1912.dishes.data.repositories.DishesState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine

@@ -1,8 +1,8 @@
-package com.kalugin1912.dishes.view.detail
+package com.kalugin1912.dishes.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.kalugin1912.dishes.repository.DishesRepository
+import com.kalugin1912.dishes.data.repositories.DishesRepository
 
 class DishDetailsViewModelFactory(
     private val id: String,

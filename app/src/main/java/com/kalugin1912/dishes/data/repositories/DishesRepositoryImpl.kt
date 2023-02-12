@@ -1,4 +1,4 @@
-package com.kalugin1912.dishes.repository
+package com.kalugin1912.dishes.data.repositories
 
 import com.kalugin1912.dishes.data.Dish
 import com.kalugin1912.dishes.data.source.DishesSource

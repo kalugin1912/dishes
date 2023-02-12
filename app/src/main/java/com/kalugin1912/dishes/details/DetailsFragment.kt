@@ -1,20 +1,16 @@
-package com.kalugin1912.dishes.view.detail
+package com.kalugin1912.dishes.details
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.kalugin1912.dishes.R
 import com.kalugin1912.dishes.ServiceLocator
+import com.kalugin1912.dishes.collectWhenUIVisible
 import com.kalugin1912.dishes.databinding.AppBarDishDetailsBinding
-import com.kalugin1912.dishes.databinding.FragmentDishDetailsBinding
 import com.kalugin1912.dishes.databinding.LayoutDetailsErrorBinding
 import com.kalugin1912.dishes.load
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 class DetailsFragment : Fragment(R.layout.app_bar_dish_details) {
 
@@ -56,7 +52,8 @@ class DetailsFragment : Fragment(R.layout.app_bar_dish_details) {
                 dishesViewModel.reloadDish()
             }
         }
-        dishesViewModel.uiState.onEach(::handleUiState).launchIn(lifecycleScope)
+
+        dishesViewModel.uiState.collectWhenUIVisible(viewLifecycleOwner, block = ::handleUiState)
     }
 
     private fun handleUiState(uiState: DetailsUIState) {

@@ -2,7 +2,7 @@ package com.kalugin1912.dishes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.kalugin1912.dishes.view.dishes.DishesFragment
+import com.kalugin1912.dishes.dishes.DishesFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

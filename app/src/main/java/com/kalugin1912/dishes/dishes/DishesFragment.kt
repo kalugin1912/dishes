@@ -1,4 +1,4 @@
-package com.kalugin1912.dishes.view.dishes
+package com.kalugin1912.dishes.dishes
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kalugin1912.dishes.R
 import com.kalugin1912.dishes.ServiceLocator
+import com.kalugin1912.dishes.collectWhenUIVisible
 import com.kalugin1912.dishes.databinding.FragmentDishesBinding
 import com.kalugin1912.dishes.databinding.LayoutEmptyStateDishesBinding
 import com.kalugin1912.dishes.view.VerticalMarginItemDecoration
-import com.kalugin1912.dishes.view.detail.DetailsFragment
+import com.kalugin1912.dishes.details.DetailsFragment
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -56,12 +57,11 @@ class DishesFragment : Fragment(R.layout.fragment_dishes) {
 
         prepareRecyclerView(dishesAdapter)
 
-        dishesViewModel.isButtonDeleteEnabled
-            .onEach { isEnabled ->
-                binding.delete.isEnabled = isEnabled
-            }.launchIn(lifecycleScope)
+        dishesViewModel.isButtonDeleteEnabled.collectWhenUIVisible(viewLifecycleOwner) { isEnabled ->
+            binding.delete.isEnabled = isEnabled
+        }
 
-        dishesViewModel.dishes.onEach(::handleUiState).launchIn(lifecycleScope)
+        dishesViewModel.dishes.collectWhenUIVisible(viewLifecycleOwner, block = ::handleUiState)
     }
 
     private fun prepareRecyclerView(adapter: RecyclerView.Adapter<*>) {

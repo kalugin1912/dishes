@@ -1,4 +1,4 @@
-package com.kalugin1912.dishes.view.dishes
+package com.kalugin1912.dishes.dishes
 
 
 import android.view.ViewGroup
