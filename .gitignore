@@ -65,13 +65,7 @@ obj/
 /out/
 
 # User-specific configurations
-.idea/*
-/*/.idea/*
-/*/*/.idea/*
-
-# Code style configuration
-!/.idea/codeStyles/codeStyleConfig.xml
-!/.idea/codeStyles/CodeStyle.xml
+.idea/
 
 # OS-specific files
 .DS_Store
