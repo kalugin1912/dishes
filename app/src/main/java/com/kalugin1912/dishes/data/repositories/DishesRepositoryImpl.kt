@@ -5,7 +5,6 @@ import com.kalugin1912.dishes.data.source.DishesSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -27,9 +26,11 @@ class DishesRepositoryImpl(
 
     override suspend fun deleteDishes(ids: Set<String>): Unit = withContext(ioDispatcher) {
         coroutineScope {
-            ids
-                .map { id -> launch { dishesSource.deleteDish(id) } }
-                .joinAll()
+            ids.forEach { id ->
+                launch {
+                    dishesSource.deleteDish(id)
+                }
+            }
         }
     }
 
