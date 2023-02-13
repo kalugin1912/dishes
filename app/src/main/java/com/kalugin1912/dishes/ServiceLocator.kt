@@ -1,5 +1,7 @@
 package com.kalugin1912.dishes
 
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kalugin1912.dishes.data.source.DishesSource
@@ -18,10 +20,10 @@ object ServiceLocator {
         DishesRepositoryImpl(dishesSource = remoteDishesSources, ioDispatcher = Dispatchers.IO)
     }
 
-    val dishesViewModelFactory: ViewModelProvider.Factory by lazy(LazyThreadSafetyMode.NONE) {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return DishesViewModel(dishesRepository) as T
+    val dishesViewModelFactory by lazy(LazyThreadSafetyMode.NONE) {
+        object : AbstractSavedStateViewModelFactory() {
+            override fun <T : ViewModel> create(key: String, modelClass: Class<T>, handle: SavedStateHandle): T {
+                return DishesViewModel(dishesRepository, handle) as T
             }
         }
     }

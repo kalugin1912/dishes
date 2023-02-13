@@ -1,23 +1,29 @@
 package com.kalugin1912.dishes.dishes
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kalugin1912.dishes.data.Checkable
 import com.kalugin1912.dishes.data.Dish
 import com.kalugin1912.dishes.data.repositories.DishesRepository
 import com.kalugin1912.dishes.data.repositories.DishesState
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class DishesViewModel(private val dishesRepository: DishesRepository) : ViewModel() {
+class DishesViewModel(
+    private val dishesRepository: DishesRepository,
+    private val savedStateHandle: SavedStateHandle,
+) : ViewModel() {
 
-    private val checkedDishes = MutableStateFlow<Set<String>>(emptySet())
+    private companion object {
+        const val CHECKED_ITEMS_KEY = "checked_items_key"
+    }
+
+    private val checkedDishes = savedStateHandle.getStateFlow(CHECKED_ITEMS_KEY, emptySet<String>())
 
     val dishes = combine(
         flow = dishesRepository.getDishesStream(),
@@ -45,7 +51,7 @@ class DishesViewModel(private val dishesRepository: DishesRepository) : ViewMode
         .distinctUntilChanged()
 
     fun checkDish(dishId: String, isChecked: Boolean) {
-        checkedDishes.update { dishes ->
+        savedStateHandle[CHECKED_ITEMS_KEY] = checkedDishes.value.let { dishes ->
             if (isChecked) {
                 dishes + dishId
             } else {
@@ -58,7 +64,7 @@ class DishesViewModel(private val dishesRepository: DishesRepository) : ViewMode
         viewModelScope.launch {
             val checkedDishesIds = checkedDishes.value
             if (checkedDishesIds.isNotEmpty()) {
-                checkedDishes.emit(emptySet())
+                savedStateHandle[CHECKED_ITEMS_KEY] = emptySet<String>()
                 dishesRepository.deleteDishes(checkedDishesIds)
             }
         }
