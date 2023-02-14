@@ -18,10 +18,10 @@ class DishDetailsViewModel(
     val uiState = _uiState.asStateFlow()
 
     init {
-        reloadDish()
+        reloadDishes()
     }
 
-    fun reloadDish() {
+    fun reloadDishes() {
         viewModelScope.launch {
             _uiState.emit(DetailsUIState.Loading)
             val uiState = runCatching {

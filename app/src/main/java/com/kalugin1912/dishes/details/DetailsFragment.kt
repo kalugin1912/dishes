@@ -49,7 +49,7 @@ class DetailsFragment : Fragment(R.layout.app_bar_dish_details) {
         fragmentDishDetailsBinding?.includeDishFragment?.errorContainerStub?.setOnInflateListener { _, inflatedView ->
             errorStateBinding = LayoutDetailsErrorBinding.bind(inflatedView)
             errorStateBinding?.reload?.setOnClickListener {
-                dishesViewModel.reloadDish()
+                dishesViewModel.reloadDishes()
             }
         }
 

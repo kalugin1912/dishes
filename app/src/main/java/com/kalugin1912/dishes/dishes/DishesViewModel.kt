@@ -17,6 +17,8 @@ import kotlinx.coroutines.launch
 class DishesViewModel(
     private val dishesRepository: DishesRepository,
     private val savedStateHandle: SavedStateHandle,
+    private val dishCheckedUseCase: DishCheckedUseCase,
+    private val deleteDishesUseCase: DeleteDishesUseCase,
 ) : ViewModel() {
 
     private companion object {
@@ -51,22 +53,13 @@ class DishesViewModel(
         .distinctUntilChanged()
 
     fun checkDish(dishId: String, isChecked: Boolean) {
-        savedStateHandle[CHECKED_ITEMS_KEY] = checkedDishes.value.let { dishes ->
-            if (isChecked) {
-                dishes + dishId
-            } else {
-                dishes - dishId
-            }
-        }
+        savedStateHandle[CHECKED_ITEMS_KEY] = dishCheckedUseCase.execute(dishId, isChecked, checkedDishes.value)
     }
 
     fun deleteDishes() {
         viewModelScope.launch {
-            val checkedDishesIds = checkedDishes.value
-            if (checkedDishesIds.isNotEmpty()) {
-                savedStateHandle[CHECKED_ITEMS_KEY] = emptySet<String>()
-                dishesRepository.deleteDishes(checkedDishesIds)
-            }
+            deleteDishesUseCase.execute(checkedDishes.value)
+            savedStateHandle[CHECKED_ITEMS_KEY] = emptySet<String>()
         }
     }
 
